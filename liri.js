@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-var keys = require("./keys.js");
+var keys = require("./key.js");
 var fs = require("fs");
 
 var Spotify = require("node-spotify-api");
@@ -10,10 +10,12 @@ var defaultBand = "Ace of Base";
 var input1 = process.argv[2];
 var input2 = process.argv[3];
 
-var spotSong = function (song) {
+var searchSpotify = function (input1) {
     if (song === undefined) {
         song = defaultSong
-    }
+    } else {
+
+    
 
     spotify.search(
         {
@@ -33,10 +35,10 @@ var spotSong = function (song) {
                 console.log("song name: " + songs[i].name);
                 console.log("preview song: " + songs[i].preview_url);
                 console.log("album: " + songs[i].album.name);
-                console.log("-----------------------------------");
             }
         }
     );
-};
+}};
 
-spotSong(process.argv[2], process.argv.slice(3).join(" "));
+searchSpotify(input1)
+
